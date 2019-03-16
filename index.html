@@ -2,141 +2,68 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Pendulum</title>
-	<!--link rel="stylesheet" type="text/css" href="bootstrap/css/bootstylepaper.css">
-	<script type="text/javascript" src="jquery.js"></script!-->
-	<script type="text/javascript" src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
-	<script type="text/javascript" src="refraction.js"></script>
-	<!--link rel="stylesheet" type="text/css" href="font-awesome-4.5.0/css/font-awesome.css"!-->
-	<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-	<!--style type="text/css">
-		.data-point1{
-			position: absolute;
-			top:-100vh;
-			width: 100vw;
-			height: 100vh;
-			z-index: 111;
-			background: white;
-			padding-bottom: 1em;
-		}
-		.info1{
-			position: absolute;
-			top: 0;
-			width: 100vw;
-			z-index: 110;
-			background: rgb(0,128,128);
-			color: white;
-			font-size: 3em;
-		}
-	</style-->
-
-	<!--script type="text/javascript">
-		$(document).ready(function () {
-			window.setTimeout(voila, 5000);
-
-			function voila (){
-				$('.data-point1').animate({top: '0', delay: '2000'}, 'slow');
-			}
-		})
-	</script!-->
+	<title>Home | APPractial</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstylepaper.css">
+	<script type="text/javascript" src="jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.5.0/css/font-awesome.css"!
+	<style type="text/css">
+	
+	</style>
 </head>
-<body style='margin : 0px; overflow: hidden;'>
-	<!--script type="text/javascript">
-		AFRAME.registerComponent('log', {
-			schema: {type: 'string'},
+<body>
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+	<img alt="Appractical Logo" src="...">
+      </a>
+    </div>
 
-			init: function () {
-				var stringToLog = this.data;
-				console.log(stringToLog);
-			}
-		})
-		AFRAME.registerComponent('animalert', {
-			init: function (){
-				var anim1 = document.getElementById('anim1');
-				anim1.addEventListener('animationend', function(){
-					console.log('animation ended');
-					document.querySelector('a-scene').display = 'none';
-				})
-			}
-		})
-	</script!-->
-	<a-scene embedded arjs>
-		<a-assets>
-			<img id="sea_texture" src="img/grass.png">
-			<img id="road_texture" src="img/medium_road.jpg">
-			<img id="skyimg" src="assets/blender/california.jpg">
-
-			<a-asset-item src="string1.obj" id="string1_obj">
-			<a-asset-item src="string1.mtl" id="string1_mtl">
-
-			<a-asset-item src="string2.obj" id="string2_obj">
-			<a-asset-item src="string2.mtl" id="string2_mtl">
-
-			<a-asset-item src="string3.obj" id="string3_obj">
-			<a-asset-item src="string3.mtl" id="string3_mtl">
-
-			<a-asset-item src="string4.obj" id="string4_obj">
-			<a-asset-item src="string4.mtl" id="string4_mtl">
-
-			<a-asset-item src="pendulum stand.obj" id="stand_obj">
-			<a-asset-item src="pendulum stand.mtl" id="stand_mtl">
-		</a-assets>
-
-		<!--a-camera position="0 0 5">
-		</a-camera!-->
-		
-		<a-marker-camera preset='hiro'></a-marker-camera>
-
-		<!--THE TABLE-->
-		<!--a-plane position="-1.5 -0.1 0" color="rgb(0,64,64)" rotation="-90 90 0" width="8" height="8"></a-plane!-->
-
-		<!--STRING 1 (THE LONGEST)-->
-		<a-obj-model position="0.4 0 0" rotation="0 -90 0" opacity="0.5" scale="0.5 0.5 0.5" src="#string1_obj" mtl="#string1_mtl" roughness="0" metalness="0.9">
-			<a-animation id="anim1" attribute="rotation" ease="ease-in-out-circ" dur="1000" to="15 0 0" from="-15 0 0" repeat="indefinite" direction="alternate"></a-animation>
-		</a-obj-model>
-
-		<a-obj-model position="0.2 0 0" rotation="0 -90 0" opacity="0.5" scale="0.5 0.5 0.5" src="#string2_obj" mtl="#string2_mtl" roughness="0" metalness="0.9">
-			<a-animation attribute="rotation" ease="ease-in-out-circ" dur="900" to="15 0 0" from="-15 0 0" repeat="indefinite" direction="alternate"></a-animation>
-		</a-obj-model>
-
-		<a-obj-model position="0 0 0" rotation="0 -90 0" opacity="0.5" scale="0.5 0.5 0.5" src="#string3_obj" mtl="#string3_mtl" roughness="0" metalness="0.9">
-			<a-animation attribute="rotation" ease="ease-in-out-circ" dur="800" to="15 0 0" from="-15 0 0" repeat="indefinite" direction="alternate" delay="0"></a-animation>
-		</a-obj-model>
-
-		<a-obj-model position="-0.2 0 0" rotation="0 -90 0" opacity="0.5" scale="0.5 0.5 0.5" src="#string4_obj" mtl="#string4_mtl" roughness="0" metalness="0.9">
-			<a-animation attribute="rotation" ease="ease-in-out-circ" dur="700" to="15 0 0" from="-15 0 0" repeat="indefinite" direction="alternate" delay="0"></a-animation>
-		</a-obj-model>
-
-		<!--THE STAND-->
-		<a-obj-model position="0 -3 0" rotation="0 90 0" opacity="0" scale="0.5 0.5 0.5" src="#stand_obj" mtl="#stand_mtl" roughness="0" metalness="0.9"></a-obj-model>
-
-	</a-scene>
-	<!--div class="data-point1">
-		<h2 id="timer"></h2>
-		<button class="btn btn-default" id="start">Start</button>
-	</div>
-	<div class="info1">
-		<span id="timer">0</span><span id="counter">0</span>
-	</div!-->
-	<!--script type="text/javascript">
-		window.setInterval(timer, 1000);
-		//window.setInterval(counter, 1000);
-
-		var timer = 0;
-		document.querySelector('#timer').style.display = 'none';
-		function timer () {
-			timer++;
-			document.querySelector('#timer').innerHTML = timer ;
-		}
-	</script!-->
-</body>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 </html>
-
-<!--
-	Lack of labs hampers science education :- 
-		https://www.timeslive.co.za/news/2017-12-28-its-not-rocket-science-lack-of-labs-hampers-pupils/
-
-	86% of this country’s 23 589 public ordinary schools do not have science labs (IRR)
-		https://www.fin24.com/Finweek/Featured/a-home-grown-science-lab-in-a-box-20170405
-
--->
