@@ -1,1 +1,143 @@
 <!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Pendulum</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstylepaper.css">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="a-framer.min.js"></script>
+	<script type="text/javascript" src="refraction.js"></script>
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.5.0/css/font-awesome.css">
+	<style type="text/css">
+		a-scene{
+			background: rgb(0,162,232);
+			z-index: 1;
+		}
+		.data-point1{
+			position: absolute;
+			top:-100vh;
+			width: 100vw;
+			height: 100vh;
+			z-index: 111;
+			background: white;
+			padding-bottom: 1em;
+		}
+		.info1{
+			position: absolute;
+			top: 0;
+			width: 100vw;
+			z-index: 110;
+			background: rgb(0,128,128);
+			color: white;
+			font-size: 3em;
+		}
+	</style>
+
+	<!--script type="text/javascript">
+		$(document).ready(function () {
+			window.setTimeout(voila, 5000);
+
+			function voila (){
+				$('.data-point1').animate({top: '0', delay: '2000'}, 'slow');
+			}
+		})
+	</script!-->
+</head>
+<body>
+	<!--script type="text/javascript">
+		AFRAME.registerComponent('log', {
+			schema: {type: 'string'},
+
+			init: function () {
+				var stringToLog = this.data;
+				console.log(stringToLog);
+			}
+		})
+		AFRAME.registerComponent('animalert', {
+			init: function (){
+				var anim1 = document.getElementById('anim1');
+				anim1.addEventListener('animationend', function(){
+					console.log('animation ended');
+					document.querySelector('a-scene').display = 'none';
+				})
+			}
+		})
+	</script!-->
+	<a-scene log="The Scene Has Been Loaded">
+		<a-assets>
+			<img id="sea_texture" src="img/grass.png">
+			<img id="road_texture" src="img/medium_road.jpg">
+			<img id="skyimg" src="assets/blender/california.jpg">
+
+			<a-asset-item src="assets/blender/pendulum/string1.obj" id="string1_obj">
+			<a-asset-item src="assets/blender/pendulum/string1.mtl" id="string1_mtl">
+
+			<a-asset-item src="assets/blender/pendulum/string2.obj" id="string2_obj">
+			<a-asset-item src="assets/blender/pendulum/string2.mtl" id="string2_mtl">
+
+			<a-asset-item src="assets/blender/pendulum/string3.obj" id="string3_obj">
+			<a-asset-item src="assets/blender/pendulum/string3.mtl" id="string3_mtl">
+
+			<a-asset-item src="assets/blender/pendulum/string4.obj" id="string4_obj">
+			<a-asset-item src="assets/blender/pendulum/string4.mtl" id="string4_mtl">
+
+			<a-asset-item src="assets/blender/pendulum/pendulum stand.obj" id="stand_obj">
+			<a-asset-item src="assets/blender/pendulum/pendulum stand.mtl" id="stand_mtl">
+		</a-assets>
+
+		<a-camera position="0 0 5">
+		</a-camera>
+
+		<!--THE TABLE-->
+		<a-plane position="-1.5 -0.1 0" color="rgb(0,64,64)" rotation="-90 90 0" width="8" height="8"></a-plane>
+
+		<!--STRING 1 (THE LONGEST)-->
+		<a-obj-model position="-1.6 3 0" rotation="0 -90 0" opacity="0.5" scale="0.5 0.5 0.5" src="#string1_obj" mtl="#string1_mtl" roughness="0" metalness="0.9">
+			<a-animation id="anim1" attribute="rotation" ease="ease-in-out-circ" dur="1000" to="15 0 0" from="-15 0 0" repeat="indefinite" direction="alternate"></a-animation>
+		</a-obj-model>
+
+		<a-obj-model position="-1.8 3 0" rotation="0 -90 0" opacity="0.5" scale="0.5 0.5 0.5" src="#string2_obj" mtl="#string2_mtl" roughness="0" metalness="0.9">
+			<a-animation attribute="rotation" ease="ease-in-out-circ" dur="900" to="15 0 0" from="-15 0 0" repeat="indefinite" direction="alternate"></a-animation>
+		</a-obj-model>
+
+		<a-obj-model position="-2 3 0" rotation="0 -90 0" opacity="0.5" scale="0.5 0.5 0.5" src="#string3_obj" mtl="#string3_mtl" roughness="0" metalness="0.9">
+			<a-animation attribute="rotation" ease="ease-in-out-circ" dur="800" to="15 0 0" from="-15 0 0" repeat="indefinite" direction="alternate" delay="0"></a-animation>
+		</a-obj-model>
+
+		<a-obj-model position="-2.2 3 0" rotation="0 -90 0" opacity="0.5" scale="0.5 0.5 0.5" src="#string4_obj" mtl="#string4_mtl" roughness="0" metalness="0.9">
+			<a-animation attribute="rotation" ease="ease-in-out-circ" dur="700" to="15 0 0" from="-15 0 0" repeat="indefinite" direction="alternate" delay="0"></a-animation>
+		</a-obj-model>
+
+		<!--THE STAND-->
+		<a-obj-model position="-2 0 0" rotation="0 90 0" opacity="0" scale="0.5 0.5 0.5" src="#stand_obj" mtl="#stand_mtl" roughness="0" metalness="0.9"></a-obj-model>
+
+	</a-scene!-->
+	<div class="data-point1">
+		<h2 id="timer"></h2>
+		<button class="btn btn-default" id="start">Start</button>
+	</div>
+	<div class="info1">
+		<span id="timer">0</span><span id="counter">0</span>
+	</div>
+	<!--script type="text/javascript">
+		window.setInterval(timer, 1000);
+		//window.setInterval(counter, 1000);
+
+		var timer = 0;
+		document.querySelector('#timer').style.display = 'none';
+		function timer () {
+			timer++;
+			document.querySelector('#timer').innerHTML = timer ;
+		}
+	</script!-->
+</body>
+</html>
+
+<!--
+	Lack of labs hampers science education :- 
+		https://www.timeslive.co.za/news/2017-12-28-its-not-rocket-science-lack-of-labs-hampers-pupils/
+
+	86% of this country’s 23 589 public ordinary schools do not have science labs (IRR)
+		https://www.fin24.com/Finweek/Featured/a-home-grown-science-lab-in-a-box-20170405
+
+-->
