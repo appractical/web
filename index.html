@@ -8,6 +8,7 @@
 	<script type="text/javascript" src="a-framer.min.js"></script>
 	<script type="text/javascript" src="refraction.js"></script>
 	<link rel="stylesheet" type="text/css" href="font-awesome-4.5.0/css/font-awesome.css">
+	<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 	<style type="text/css">
 		a-scene{
 			background: rgb(0,162,232);
@@ -43,7 +44,7 @@
 		})
 	</script!-->
 </head>
-<body>
+<body style='margin : 0px; overflow: hidden;'>
 	<!--script type="text/javascript">
 		AFRAME.registerComponent('log', {
 			schema: {type: 'string'},
@@ -63,7 +64,7 @@
 			}
 		})
 	</script!-->
-	<a-scene log="The Scene Has Been Loaded">
+	<a-scene embedded arjs>
 		<a-assets>
 			<img id="sea_texture" src="img/grass.png">
 			<img id="road_texture" src="img/medium_road.jpg">
